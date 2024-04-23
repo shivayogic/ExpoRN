@@ -2,6 +2,10 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTLinkingManager.h>
+#import <AppCenterReactNativeShared/AppCenterReactNativeShared.h>
+#import <AppCenterReactNativeCrashes.h>
+#import <AppCenterReactNativeAnalytics.h>
+#import <AppCenterReactNative.h>
 
 @implementation AppDelegate
 
@@ -12,7 +16,9 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-
+  [AppCenterReactNative register];
+  [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
+  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
